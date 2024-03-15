@@ -11,11 +11,8 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-<<<<<<< HEAD
-=======
 import static com.baomidou.mybatisplus.extension.toolkit.SimpleQuery.selectList;
 
->>>>>>> 5620f38 (we2)
 @Service
 public class RedisService {
     @Autowired
@@ -38,12 +35,8 @@ public class RedisService {
     public Object getRedis2() {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.ge("user_id", 10);
-<<<<<<< HEAD
-        ArrayList<User> result = (ArrayList<User>) userMapper.selectList(queryWrapper);
-        System.out.println(result);
-=======
         List<User> result = userMapper.selectList(queryWrapper);
->>>>>>> 5620f38 (we2)
+
         return redisTemplate.opsForList().leftPushAll("user", result);
     }
 
