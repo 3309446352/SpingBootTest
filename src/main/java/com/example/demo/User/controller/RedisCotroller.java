@@ -5,6 +5,7 @@ import com.example.demo.User.util.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -25,8 +26,8 @@ public class RedisCotroller {
     }
 
     @GetMapping("/redistwo")
-    public Object getRedis(){
-        return redisService.getRedis2();
+    public Object getRedis(@RequestParam(value = "id"  ) int id){
+        return redisService.getRedis2(id);
     }
 
 }

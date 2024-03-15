@@ -1,17 +1,16 @@
 package com.example.demo.User.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.User.Mapper.UserMapper;
-import com.example.demo.User.config.IfNull;
+import com.example.demo.User.config.IfNull.IfNull;
 import com.example.demo.User.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static com.baomidou.mybatisplus.extension.toolkit.SimpleQuery.selectList;
+import java.util.Optional;
 
 @Service
 public class RedisService {
@@ -32,12 +31,21 @@ public class RedisService {
     public Object getRedis() {
         return redisTemplate.opsForValue().get("user");
     }
-    public Object getRedis2() {
+    @IfNull
+    public Object getRedis2(int id) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.ge("user_id", 10);
+        queryWrapper.ge("user_id", id);
         List<User> result = userMapper.selectList(queryWrapper);
+        boolean One =ObjectUtil.isEmpty(result);
+        if (One) {
+            System.out.println(true);
+            return "查询失败";
+        }else {
+            System.out.println(result);
+            return redisTemplate.opsForList().leftPushAll("user", result);
+        }
 
-        return redisTemplate.opsForList().leftPushAll("user", result);
+
     }
 
 }

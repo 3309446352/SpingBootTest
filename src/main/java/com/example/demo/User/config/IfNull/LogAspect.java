@@ -1,4 +1,4 @@
-package com.example.demo.User.config;
+package com.example.demo.User.config.IfNull;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -13,7 +13,7 @@ import java.util.Date;
 @Component
 @Aspect
 public class LogAspect {
-    @Pointcut("@annotation(com.example.demo.User.config.IfNull)")
+    @Pointcut("@annotation(com.example.demo.User.config.IfNull.IfNull)")
     public void logPoint() {//这就是个标志，爱叫啥叫啥，给下面用的
     }
 

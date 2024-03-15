@@ -1,4 +1,4 @@
-package com.example.demo.User.config;
+package com.example.demo.User.config.Cors;
 
 import org.apache.catalina.filters.CorsFilter;
 import org.springframework.context.annotation.Bean;

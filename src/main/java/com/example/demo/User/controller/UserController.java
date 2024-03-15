@@ -2,18 +2,15 @@ package com.example.demo.User.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.User.Mapper.UserMapper;
-import com.example.demo.User.config.IfNull;
+import com.example.demo.User.config.IfNull.IfNull;
 import com.example.demo.User.config.ResultInfo;
 import com.example.demo.User.entity.User;
 import com.example.demo.User.service.UserService;
 import com.example.demo.User.util.JWTUtils;
 import com.google.gson.Gson;
-import com.sun.istack.internal.NotNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * (User)表控制层
@@ -51,7 +48,6 @@ public class UserController{
     }
     @GetMapping("/Page")
         public String selectById(
-                @RequestBody
                 @RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                 @RequestParam(value = "pageSize", defaultValue = "5")  Integer pageSize) {
 
