@@ -29,6 +29,8 @@ public  class User{
     private String userRole;
 //用户状态（0:正常,1:禁用）
     private String userStatus;
+//用户权限
+    private String perms;
 
 }
 

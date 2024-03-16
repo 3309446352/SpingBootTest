@@ -8,6 +8,7 @@ import com.example.demo.User.entity.User;
 import com.example.demo.User.service.UserService;
 import com.example.demo.User.util.JWTUtils;
 import com.google.gson.Gson;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -40,6 +41,7 @@ public class UserController{
 
     // 自定义注解
     @IfNull
+
     public String selectAll(@RequestParam(value = "id",defaultValue = "",required = true) Integer id) {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", id);
@@ -47,7 +49,7 @@ public class UserController{
         return gson.toJson(userMapper.selectList(queryWrapper));
     }
     @GetMapping("/Page")
-        public String selectById(
+    public String selectById(
                 @RequestParam(value = "pageNo", defaultValue = "1") Integer pageNo,
                 @RequestParam(value = "pageSize", defaultValue = "5")  Integer pageSize) {
 
