@@ -3,14 +3,13 @@ package com.example.demo.User.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.demo.User.Mapper.UserMapper;
-import com.example.demo.User.config.IfNull.IfNull;
+import com.example.demo.User.config.Allocation.IfNull.IfNull;
 import com.example.demo.User.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class RedisService {

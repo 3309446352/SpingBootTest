@@ -2,7 +2,7 @@ package com.example.demo.User.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.demo.User.Mapper.UserMapper;
-import com.example.demo.User.config.IfNull.IfNull;
+import com.example.demo.User.config.Allocation.IfNull.IfNull;
 import com.example.demo.User.config.ResultInfo;
 import com.example.demo.User.entity.User;
 import com.example.demo.User.service.UserService;

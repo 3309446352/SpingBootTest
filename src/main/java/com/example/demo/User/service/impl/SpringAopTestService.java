@@ -1,6 +1,6 @@
 package com.example.demo.User.service.impl;
 
-import com.example.demo.User.config.IfNull.IfNull;
+import com.example.demo.User.config.Allocation.IfNull.IfNull;
 import com.example.demo.User.util.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.demo.User.config.IfNull;
+package com.example.demo.User.config.Allocation.IfNull;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

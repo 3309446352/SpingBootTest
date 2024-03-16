@@ -17,15 +17,15 @@ import java.util.Map;
 public class JWTUtils {
     public String Getjwtutils() {
         Map<String, Object> header = new HashMap<>();
-        header.put("alg", "HS256");
-        header.put("typ", "JWT");
+        header.put("alg", "HS256");// 设置算法
+        header.put("typ", "JWT");// 设置类型
 
         // 载核【Payload】
         Map<String, Object> payload = new HashMap<>();
-        payload.put("sub", "1234567890");
-        payload.put("name","John Doe");
-        payload.put("admin",true);
-        payload.put("iat",1516239022);
+        payload.put("sub", "1234567890");// 设置主题
+        payload.put("name","John Doe");// 设置用户名
+        payload.put("admin",true);// 设置是否是管理员
+        payload.put("iat",1516239022);// 设置签发时间
 
         // 声明Token失效时间
         Calendar instance = Calendar.getInstance();
@@ -49,14 +49,14 @@ public class JWTUtils {
         String token = Getjwtutils();
             // 解析head信息
         JwsHeader jwsHeader = Jwts
-                .parser()
-                .setSigningKey("secret")
-                .parseClaimsJws(token)
-                .getHeader();
+                .parser() //
+                .setSigningKey("secret")// 设置签名的私钥
+                .parseClaimsJws(token)// 设置需要解析的token
+                .getHeader();// 获取head信息
         System.out.println(jwsHeader); // {typ=JWT, alg=HS256}
         System.out.println("typ:"+jwsHeader.get("typ"));
 
-        Claims claims =    Jwts
+        Claims claims = Jwts
                 .parser()
                 .setSigningKey("secret")
                 .parseClaimsJws(token)
