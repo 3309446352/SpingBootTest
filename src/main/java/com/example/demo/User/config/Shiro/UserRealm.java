@@ -14,6 +14,9 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Component
 public class UserRealm extends AuthorizingRealm {
     // 用于用户认证"授权"
@@ -23,9 +26,12 @@ public class UserRealm extends AuthorizingRealm {
         Subject subject = SecurityUtils.getSubject();//获取当前登录的用户信息
         User user = (User) subject.getPrincipal();//获取User对象
 
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        info.addStringPermission(user.getUserRole());//设置权限
-        return null;
+        Set<String> roles = new HashSet<>();
+        roles.add(user.getUserRole());
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(roles);
+
+        info.addStringPermission(user.getPerms());//设置权限
+        return info;
     }
     // 用于用户"认证"
     @Override
