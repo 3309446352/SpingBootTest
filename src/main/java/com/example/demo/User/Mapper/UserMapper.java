@@ -17,7 +17,6 @@ public interface UserMapper extends  BaseMapper<User>{
     User findUserByUSerUserName(String username);
 
     default User findUserByUserName(String username){
-        System.out.println("findUserByUserName");
         return findUserByUSerUserName(username);
     }
 }

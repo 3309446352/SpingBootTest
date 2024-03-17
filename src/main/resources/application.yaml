@@ -1,6 +1,12 @@
 spring:
     profiles:
         active: pro
+    application:
+        name: nacos-stock
+        cloud:
+            nacos:
+                discovery:
+                    server-addr: 192.168.0.191:8848 #nacos地址
         #判断此时是在什么环境：dev、test、pro，如果是在 pro 生产环境，则关闭 swagger2
     datasource:
         url: jdbc:mysql://localhost:3306/book
