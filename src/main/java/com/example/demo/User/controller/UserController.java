@@ -8,7 +8,6 @@ import com.example.demo.User.entity.User;
 import com.example.demo.User.service.UserService;
 import com.example.demo.User.util.JWTUtils;
 import com.google.gson.Gson;
-import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -62,8 +61,8 @@ public class UserController{
     }
     @GetMapping("/JwtToken")
     public String JwtToken() {
-        jwtutils.Setjwttoken();
-        return jwtutils.Getjwtutils();
+        jwtutils.SetToken();
+        return jwtutils.Getjwttoken("123456","123456");
     }
     @GetMapping("/selectOne/")
     public ResultInfo selectOne(@RequestParam String name) {

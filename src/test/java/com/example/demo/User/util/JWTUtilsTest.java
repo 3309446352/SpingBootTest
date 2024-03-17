@@ -2,13 +2,17 @@ package com.example.demo.User.util;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class JWTUtilsTest {
 
     @Test
     void setjwttoken() {
         JWTUtils jwtUtils = new JWTUtils();
-        jwtUtils.Setjwttoken();
+        jwtUtils.SetToken();
+    }
+
+    @Test
+    void getjwtutils() {
+        JWTUtils jwtUtils = new JWTUtils();
+        jwtUtils.Getjwttoken("123456","admin");
     }
 }
